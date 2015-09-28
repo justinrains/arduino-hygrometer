@@ -6,6 +6,7 @@
 ** Connect the sensor analog out to the A0(Analog 0) pin on the Arduino board
 ** Connect the sensor VCC pin to 5v pin on Arduino the board
 ** Connect the sensor GND pin to GND pin on the Arduino board.
+** I am using this soil moisture sensor: http://amzn.to/1iEy1TU
 ** If you have any questions please add a comment at http://justinrains.com
 */
 
