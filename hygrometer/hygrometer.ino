@@ -6,15 +6,23 @@
 ** Connect the sensor analog out to the A0(Analog 0) pin on the Arduino board
 ** Connect the sensor VCC pin to 5v pin on Arduino the board
 ** Connect the sensor GND pin to GND pin on the Arduino board.
+** This Arduino uno: http://amzn.to/1Ga0qMs
+** This RGB led: http://amzn.to/1jt91zi
 ** I am using this soil moisture sensor: http://amzn.to/1iEy1TU
 ** If you have any questions please add a comment at http://justinrains.com
 */
 
 const int aIn = 0;
+const int redLed = 13;
+const int greenLed = 14;
+const int blueLed = 15;
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
+  pinMode(redLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
 }
 
 
@@ -22,6 +30,8 @@ void loop() {
   // read the input on analog pin:
   int sensorValue = analogRead(aIn);
   Serial.println(sensorValue);
+  digitalWrite(redLed, HIGH);
   delay(3000); // Wait 3 seconds
+  digitalWrite(redLed, LOW);
 }
 
