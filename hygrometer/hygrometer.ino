@@ -14,8 +14,8 @@
 
 const int aIn = 0;
 const int redLed = 13;
-const int greenLed = 14;
-const int blueLed = 15;
+const int greenLed = 12;
+const int blueLed = 11;
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
@@ -30,8 +30,17 @@ void loop() {
   // read the input on analog pin:
   int sensorValue = analogRead(aIn);
   Serial.println(sensorValue);
-  digitalWrite(redLed, HIGH);
+  if (sensorValue > 1000) {
+    digitalWrite(redLed, HIGH);
+  } else if (sensorValue > 985) {
+    digitalWrite(blueLed, HIGH);
+  } else {
+    digitalWrite(greenLed, HIGH);
+  }
   delay(3000); // Wait 3 seconds
+  digitalWrite(blueLed, LOW);
   digitalWrite(redLed, LOW);
+  digitalWrite(greenLed, LOW);
+  delay(3000);
 }
 
